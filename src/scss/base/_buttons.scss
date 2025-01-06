@@ -1,0 +1,7 @@
+.button-yellow {
+	@include button($yellow, block);
+}
+
+.button-green {
+	@include button($green, inline-block);
+}
