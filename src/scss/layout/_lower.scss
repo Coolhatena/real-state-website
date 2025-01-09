@@ -17,7 +17,11 @@
 		margin-bottom: 0;
 	}
 }
-
+.meta-inf {
+	span {
+		color: $yellow;
+	}
+}
 .entry-text {
 	a {
 		color: $black;
@@ -42,7 +46,4 @@
 		}
 	}
 
-	span {
-		color: $yellow;
-	}
 }
