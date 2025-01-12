@@ -2,6 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	padding-top: 3rem;
+	align-items: center;
 	@include tablet {
 		flex-direction: row;
 		justify-content: space-between;
@@ -9,6 +10,8 @@
 }
 
 .navigation {
+	display: none;
+
 	@include tablet {
 		display: flex;
 		align-items: center;
@@ -31,4 +34,19 @@
 		}
 	}
 
+}
+
+/* Responsive menu */
+.mobile-menu {
+	@include tablet {
+		display: none;
+	}
+
+	img {
+		width: 5rem;
+	}
+}
+
+.show {
+	display: block;
 }
