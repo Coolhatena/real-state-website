@@ -17,4 +17,13 @@
 		color: $white;
 		text-align: center;
 	}
+
+	.github {
+		color: $white;
+		text-align: center;
+
+		a {
+			text-decoration: underline;
+		}
+	}
 }
