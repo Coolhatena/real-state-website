@@ -1,36 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bienes Raices</title>
-	<link rel="stylesheet" href="build/css/app.css">
-
-</head>
-<body>
-
-	<header class="header">
-		<div class="container header-content">
-			<div class="bar">
-				<a href="/"><img src="build/img/logo.svg" alt="Logotipo de Bienes Raices"></a>
-
-				<div class="mobile-menu">
-					<img src="build/img/barras.svg" alt="Icono Menu responsive">
-				</div>
-
-				<div class="header-right">
-					<nav class="navigation">
-						<a href="us.html">Nosotros</a>
-						<a href="ads.html">Anuncios</a>
-						<a href="blog.html">Blog</a>
-						<a href="contact.html">Contacto</a>
-					</nav>
-					<img src="build/img/dark-mode.svg" alt="Icono modo oscuro" class="dark-mode-button">
-				</div>
-				
-			</div>
-		</div> <!-- End bar -->
-	</header>
+<?php include 'includes/templates/header.php' ?>
 
 	<main class="container section">
 			<h2>Casas y Depas en Venta</h2>
@@ -60,7 +28,7 @@
 							</li>
 						</ul>
 	
-						<a href="ad.html" class="button-yellow-block">
+						<a href="ad.php" class="button-yellow-block">
 							Ver Propiedad
 						</a>
 	
@@ -92,7 +60,7 @@
 							</li>
 						</ul>
 	
-						<a href="ad.html" class="button-yellow-block">
+						<a href="ad.php" class="button-yellow-block">
 							Ver Propiedad
 						</a>
 	
@@ -124,7 +92,7 @@
 							</li>
 						</ul>
 	
-						<a href="ad.html" class="button-yellow-block">
+						<a href="ad.php" class="button-yellow-block">
 							Ver Propiedad
 						</a>
 	
@@ -156,7 +124,7 @@
 							</li>
 						</ul>
 	
-						<a href="ad.html" class="button-yellow-block">
+						<a href="ad.php" class="button-yellow-block">
 							Ver Propiedad
 						</a>
 	
@@ -188,7 +156,7 @@
 							</li>
 						</ul>
 	
-						<a href="ad.html" class="button-yellow-block">
+						<a href="ad.php" class="button-yellow-block">
 							Ver Propiedad
 						</a>
 	
@@ -220,7 +188,7 @@
 							</li>
 						</ul>
 	
-						<a href="ad.html" class="button-yellow-block">
+						<a href="ad.php" class="button-yellow-block">
 							Ver Propiedad
 						</a>
 	
@@ -233,10 +201,10 @@
 	<footer class="footer section">
 		<div class="container footer-container">
 			<div class="navigation">
-				<a href="us.html">Nosotros</a>
-				<a href="ads.html">Anuncios</a>
-				<a href="blog.html">Blog</a>
-				<a href="contact.html">Contacto</a>
+				<a href="us.php">Nosotros</a>
+				<a href="ads.php">Anuncios</a>
+				<a href="blog.php">Blog</a>
+				<a href="contact.php">Contacto</a>
 			</div>
 		</div>
 

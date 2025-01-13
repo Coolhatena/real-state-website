@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bienes Raices</title>
-	<link rel="stylesheet" href="build/css/app.css">
-
-</head>
-<body>
-
-	<header class="header main">
-		<div class="container header-content">
-			<div class="bar">
-				<a href="/"><img src="build/img/logo.svg" alt="Logotipo de Bienes Raices"></a>
-
-				<div class="mobile-menu">
-					<img src="build/img/barras.svg" alt="Icono Menu responsive">
-				</div>
-
-				<div class="header-right">
-					<nav class="navigation">
-						<a href="us.html">Nosotros</a>
-						<a href="ads.html">Anuncios</a>
-						<a href="blog.html">Blog</a>
-						<a href="contact.html">Contacto</a>
-					</nav>
-					<img src="build/img/dark-mode.svg" alt="Icono modo oscuro" class="dark-mode-button">
-				</div>
-				
-			</div>
-			<h1>Venta de Casas y Departamentos Exclusivos de Lujo</h1>
-		</div> <!-- End bar -->
-	</header>
+<?php
+	$mainPage = true;
+	include 'includes/templates/header.php' 
+?>
 
 	<main class="container section">
 		<h1>Más Sobre Nosotros</h1>
@@ -95,7 +65,7 @@
 						</li>
 					</ul>
 
-					<a href="ad.html" class="button-yellow-block">
+					<a href="ad.php" class="button-yellow-block">
 						Ver Propiedad
 					</a>
 
@@ -127,7 +97,7 @@
 						</li>
 					</ul>
 
-					<a href="ad.html" class="button-yellow-block">
+					<a href="ad.php" class="button-yellow-block">
 						Ver Propiedad
 					</a>
 
@@ -159,7 +129,7 @@
 						</li>
 					</ul>
 
-					<a href="ad.html" class="button-yellow-block">
+					<a href="ad.php" class="button-yellow-block">
 						Ver Propiedad
 					</a>
 
@@ -169,14 +139,14 @@
 		</div><!--.ads-container-->
 
 		<div class="align-right">
-			<a href="ads.html" class="button-green">Ver todas</a>
+			<a href="ads.php" class="button-green">Ver todas</a>
 		</div>
 	</section>
 
 	<section class="contact-image">
 		<h2>Encuentra la casa de tus sueños</h2>
 		<p>Llena el formulario de contacto y un asesor de pondrá en contacto contigo a la brevedad</p>
-		<a href="contact.html" class="button-yellow">Contáctanos</a>
+		<a href="contact.php" class="button-yellow">Contáctanos</a>
 	</section>
 
 	<div class="container section lower-section">
@@ -192,7 +162,7 @@
 				</div>
 
 				<div class="entry-text">
-					<a href="entry.html">
+					<a href="entry.php">
 						<h4>Terraza en el techo de tu casa</h4>
 						<p class="meta-inf">Escrito el: <span>20/10/2024</span> por <span>Admin</span> </p>
 
@@ -211,7 +181,7 @@
 				</div>
 
 				<div class="entry-text">
-					<a href="entry.html">
+					<a href="entry.php">
 						<h4>Construye una alberca en tu hogar</h4>
 						<p class="meta-inf">Escrito el: <span>19/10/2024</span> por <span>Admin</span> </p>
 
@@ -235,10 +205,10 @@
 	<footer class="footer section">
 		<div class="container footer-container">
 			<div class="navigation">
-				<a href="us.html">Nosotros</a>
-				<a href="ads.html">Anuncios</a>
-				<a href="blog.html">Blog</a>
-				<a href="contact.html">Contacto</a>
+				<a href="us.php">Nosotros</a>
+				<a href="ads.php">Anuncios</a>
+				<a href="blog.php">Blog</a>
+				<a href="contact.php">Contacto</a>
 			</div>
 		</div>
 
