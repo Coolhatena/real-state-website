@@ -2,6 +2,6 @@
 
 require 'app.php';
 
-function includeTemplate( $name, $isAlt = false ) {
+function includeTemplate( string $name, bool $isAlt = false ) {
 	include TEMPLATES_URL . $name . '.php';
 }
