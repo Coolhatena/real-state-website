@@ -1,13 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 	eventListeners();
-
 	darkMode();
 });
 
 function darkMode() {
 	const isDarkMode = localStorage.getItem('darkMode') === 'true';
 	const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
-	if ( isDarkMode || prefersDarkMode.matches ) {
+
+	if ( localStorage.getItem('darkMode') === null && prefersDarkMode.matches ) {
+		document.body.classList.add('dark-mode');
+		localStorage.setItem('darkMode', true);
+	}
+
+	if ( isDarkMode ) {
 		document.body.classList.add('dark-mode');
 	}
 
@@ -19,7 +24,7 @@ function darkMode() {
 	darkModeButton.addEventListener('click', () => {
 		document.body.classList.toggle('dark-mode');
 
-		const darkModeState = document.body.classList.contains('dark-mode');
+		const darkModeState = !(localStorage.getItem('darkMode') === 'true');
 		localStorage.setItem('darkMode', darkModeState);
 	});
  }
