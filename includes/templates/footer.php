@@ -8,6 +8,6 @@
 			</div>
 		</div>
 
-		<p class="copyright">Todos los derechos Reservados 2025 &copy;</p>
+		<p class="copyright">Todos los derechos Reservados <?php echo date('Y')?>&copy;</p>
 		<p class="github">Más de mis proyectos aquí: <a href="https://github.com/Coolhatena?tab=overview&from=2025-01-01&to=2025-01-06"> Github/Coolhatena</a> ;)</p>
 </footer>
