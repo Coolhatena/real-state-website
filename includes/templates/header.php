@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<header class="header <?php echo isset( $mainPage ) ? 'main' : '' ?>">
+	<header class="header <?php echo $isAlt ? 'main' : '' ?>">
 		<div class="container header-content">
 			<div class="bar">
 				<a href="/"><img src="build/img/logo.svg" alt="Logotipo de Bienes Raices"></a>
@@ -29,6 +29,6 @@
 				</div>
 				
 			</div>
-			<?php echo isset( $mainPage ) ? '<h1>Venta de Casas y Departamentos Exclusivos de Lujo</h1>' : '' ?>
+			<?php echo $isAlt ? '<h1>Venta de Casas y Departamentos Exclusivos de Lujo</h1>' : '' ?>
 		</div> <!-- End bar -->
 	</header>
