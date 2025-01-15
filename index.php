@@ -1,6 +1,7 @@
 <?php
-	$mainPage = true;
-	include 'includes/templates/header.php' 
+
+	require 'includes/functions.php';
+	includeTemplate('header', $isAlt = true); 
 ?>
 
 	<main class="container section">
@@ -202,7 +203,7 @@
 		</section>
 	</div>
 
-	<?php include 'includes/templates/footer.php' ?>
+	<?php includeTemplate('footer'); ?>
 	
 	<script src="build/js/bundle.min.js"></script>
 </body>

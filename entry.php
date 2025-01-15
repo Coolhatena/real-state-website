@@ -1,4 +1,8 @@
-<?php include 'includes/templates/header.php' ?>
+<?php
+
+	require 'includes/functions.php';
+	includeTemplate('header'); 
+?>
 
 	<main class="container section centered-content">
 		<h1>Construye una alberca en tu hogar sin gastar demasiado</h1>
@@ -17,7 +21,7 @@
 		</div>
 	</main>
 
-	<?php include 'includes/templates/footer.php' ?>
+	<?php includeTemplate('footer'); ?>
 	
 	<script src="build/js/bundle.min.js"></script>
 </body>

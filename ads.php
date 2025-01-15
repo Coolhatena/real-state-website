@@ -1,4 +1,8 @@
-<?php include 'includes/templates/header.php' ?>
+<?php
+
+	require 'includes/functions.php';
+	includeTemplate('header'); 
+?>
 
 	<main class="container section">
 			<h2>Casas y Depas en Venta</h2>
@@ -198,7 +202,7 @@
 			</div><!--.ads-container-->
 	</main>
 
-	<?php include 'includes/templates/footer.php' ?>
+	<?php includeTemplate('footer'); ?>
 	
 	<script src="build/js/bundle.min.js"></script>
 </body>
