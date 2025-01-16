@@ -12,7 +12,7 @@
 	<header class="header <?php echo $isAlt ? 'main' : '' ?>">
 		<div class="container header-content">
 			<div class="bar">
-				<a href="/"><img src="/build/img/logo.svg" alt="Logotipo de Bienes Raices"></a>
+				<a href="/"><img src="/build/img/logo.svg" alt="Logotipo de Bienes Raices" class="header-logo"></a>
 
 				<div class="mobile-menu">
 					<img src="/build/img/barras.svg" alt="Icono Menu responsive">
