@@ -2,7 +2,16 @@
 	// Database
 	require '../../includes/config/database.php';
 	$db = connectDB();
-	
+
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		echo "<pre>";
+		var_dump($_POST);
+		echo "</pre>";
+
+		$title = $_POST["title"];
+		$price = $_POST["price"];
+	}
+
 	require '../../includes/functions.php';
 	includeTemplate('header'); 
 ?>
@@ -23,7 +32,7 @@
 				<input type="number" name="price" id="price" placeholder="Precio Propiedad">
 
 				<label for="imagen">Imagen:</label>
-				<input type="file" name="imagen" id="imagen" accept="image/jpeg, image/png">
+				<input type="file" name="image" id="image" accept="image/jpeg, image/png">
 
 				<label for="description">Descripción</label>
 				<textarea name="description" id="description"></textarea>
