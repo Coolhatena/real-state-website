@@ -2,8 +2,7 @@
 	// Database
 	require '../../includes/config/database.php';
 	$db = connectDB();
-	var_dump($db);
-
+	
 	require '../../includes/functions.php';
 	includeTemplate('header'); 
 ?>
@@ -13,7 +12,7 @@
 
 		<a href="/admin" class="button button-green">Volver</a>
 
-		<form action="" class="form">
+		<form method="POST" action="/admin/properties/create.php" class="form">
 			<fieldset>
 				<legend>Información General</legend>
 
