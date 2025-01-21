@@ -3,6 +3,10 @@
 	require '../../includes/config/database.php';
 	$db = connectDB();
 
+	// Error array
+	$errors = [];
+
+	// Execute when user sends forms
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		// echo "<pre>";
 		// var_dump($_POST);
@@ -16,14 +20,50 @@
 		$parkings = $_POST["parkings"];
 		$seller_id = $_POST["seller_id"];
 
-		// Insert
-		$query = "INSERT INTO properties (title, price, description, rooms, wc, parkings, seller_id) VALUES ( '$title', '$price', '$description', '$rooms', '$wc', '$parkings', '$seller_id');";
-		// echo $query;
-		
-		$result = mysqli_query($db, $query);
-		if ($result) {
-			echo "Insertado correctamente";
+		if(!$title) {
+			$errors[] = "Debes añadir un titulo";
 		}
+
+		if(!$price) {
+			$errors[] = "El precio es obligatorio";
+		}
+
+		if(strlen($description) < 50) {
+			$errors[] = "La descripción es obligatoria y debe ser mayor a 50 caracteres";
+		}
+
+		if(!$rooms) {
+			$errors[] = "El número de habitaciones es obligatorio";
+		}
+
+		if(!$wc) {
+			$errors[] = "El número de baños es obligatorio";
+		}
+
+		if(!$parkings) {
+			$errors[] = "El número de estacionamientos es obligatorio";
+		}
+
+		if(!$seller_id) {
+			$errors[] = "Elige un vendedor";
+		}
+
+		// Check that the error array is empty
+		if (empty($errors)) {
+			// Insert
+			$query = "INSERT INTO properties (title, price, description, rooms, wc, parkings, seller_id) VALUES ( '$title', '$price', '$description', '$rooms', '$wc', '$parkings', '$seller_id');";
+			// echo $query;
+			
+			$result = mysqli_query($db, $query);
+			if ($result) {
+				echo "Insertado correctamente";
+			}
+		}
+
+		// echo "<pre>";
+		// var_dump($errors);
+		// echo "</pre>";
+
 	}
 
 	require '../../includes/functions.php';
@@ -34,6 +74,13 @@
 		<h1>Crear</h1>
 
 		<a href="/admin" class="button button-green">Volver</a>
+
+		<?php foreach($errors as $error): ?>
+			<div class="alerta error">
+				<?php echo $error; ?>
+			</div>
+		<?php endforeach; ?>
+
 
 		<form method="POST" action="/admin/properties/create.php" class="form">
 			<fieldset>
@@ -69,6 +116,7 @@
 				<legend>Información del Vendedor</legend>
 
 				<select name="seller_id" id="seller_id">
+					<option value="" disabled selected>-- Seleccione --</option>
 					<option value="1">Eduardo</option>
 					<option value="2">Evelyn</option>
 				</select>
