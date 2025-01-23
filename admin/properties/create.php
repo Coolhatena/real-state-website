@@ -3,6 +3,10 @@
 	require '../../includes/config/database.php';
 	$db = connectDB();
 
+	// Get sellers
+	$sellers_query = "SELECT * FROM sellers";
+	$sellers = mysqli_query($db, $sellers_query);
+
 	// Error array
 	$errors = [];
 	$title = '';
@@ -124,8 +128,10 @@
 
 				<select name="seller_id" id="seller_id">
 					<option value="" disabled selected>-- Seleccione --</option>
-					<option value="1">Eduardo</option>
-					<option value="2">Evelyn</option>
+					<?php while($row = mysqli_fetch_assoc($sellers) ): ?>
+						<option <?php echo $seller_id === $row['id'] ? 'selected' : ''; ?> value="<?php echo $row['id']?>"><?php echo $row['name'] . " " . $row['lastname'] ?></option>
+
+					<?php endwhile; ?>
 				</select>
 			</fieldset>
 
