@@ -5,6 +5,13 @@
 
 	// Error array
 	$errors = [];
+	$title = '';
+	$price = '';
+	$description = '';
+	$rooms = '';
+	$wc = '';
+	$parkings = '';
+	$seller_id = '';
 
 	// Execute when user sends forms
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -87,29 +94,29 @@
 				<legend>Información General</legend>
 
 				<label for="title">Titulo:</label>
-				<input type="text" name="title" id="title" placeholder="Titulo Propiedad">
+				<input type="text" name="title" id="title" placeholder="Titulo Propiedad" value="<?php echo $title; ?>">
 
 				<label for="price">Precio:</label>
-				<input type="number" name="price" id="price" placeholder="Precio Propiedad">
+				<input type="number" name="price" id="price" placeholder="Precio Propiedad" value="<?php echo $price; ?>">
 
 				<label for="imagen">Imagen:</label>
 				<input type="file" id="image" accept="image/jpeg, image/png">
 
 				<label for="description">Descripción</label>
-				<textarea name="description" id="description"></textarea>
+				<textarea name="description" id="description"><?php echo $description; ?></textarea>
 			</fieldset>
 
 			<fieldset>
 				<legend>Información de la propiedad:</legend>
 
 				<label for="rooms">Habitaciones:</label>
-				<input type="number" name="rooms" id="rooms" placeholder="Ej: 3" min="1">
+				<input type="number" name="rooms" id="rooms" placeholder="Ej: 3" min="1" value="<?php echo $rooms; ?>">
 				
 				<label for="wc">Baños:</label>
-				<input type="number" name="wc" id="wc" placeholder="Ej: 3" min="1">	
+				<input type="number" name="wc" id="wc" placeholder="Ej: 3" min="1" value="<?php echo $wc; ?>">	
 
 				<label for="parking">Estacionamientos:</label>
-				<input type="number" name="parkings" id="parkings" placeholder="Ej: 3" min="1">	
+				<input type="number" name="parkings" id="parkings" placeholder="Ej: 3" min="1" value="<?php echo $parkings; ?>">	
 			</fieldset>
 
 			<fieldset>
