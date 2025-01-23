@@ -16,6 +16,7 @@
 	$wc = '';
 	$parkings = '';
 	$seller_id = '';
+	$created_at = date('Y/m/d');
 
 	// Execute when user sends forms
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -62,7 +63,7 @@
 		// Check that the error array is empty
 		if (empty($errors)) {
 			// Insert
-			$query = "INSERT INTO properties (title, price, description, rooms, wc, parkings, seller_id) VALUES ( '$title', '$price', '$description', '$rooms', '$wc', '$parkings', '$seller_id');";
+			$query = "INSERT INTO properties (title, price, description, rooms, wc, parkings, created_at, seller_id) VALUES ( '$title', '$price', '$description', '$rooms', '$wc', '$parkings', '$created_at','$seller_id');";
 			// echo $query;
 			
 			$result = mysqli_query($db, $query);
