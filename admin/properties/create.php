@@ -23,6 +23,9 @@
 		// echo "<pre>";
 		// var_dump($_POST);
 		// echo "</pre>";
+		// echo "<pre>";
+		// var_dump($_FILES);
+		// echo "</pre>";
 
 		$title = mysqli_real_escape_string($db, $_POST["title"]);
 		$price = mysqli_real_escape_string($db, $_POST["price"]);
@@ -32,12 +35,25 @@
 		$parkings = mysqli_real_escape_string($db, $_POST["parkings"]);
 		$seller_id = mysqli_real_escape_string($db, $_POST["seller_id"]);
 
+		// Save image file on a variable
+		$image = $_FILES['image'];
+
+		// Validations
 		if(!$title) {
 			$errors[] = "Debes añadir un titulo";
 		}
 
 		if(!$price) {
 			$errors[] = "El precio es obligatorio";
+		}
+
+		if(!$image['name']) {
+			$errors[] = "La imagen es obligatoria";
+		} else { // validate image size
+			$expected_size = 1000 * 100; // 100 kb
+			if($image['size'] > $expected_size || $image['error']) {
+				$errors[] = "La imagen es muy pesada";
+			}
 		}
 
 		if(strlen($description) < 50) {
@@ -59,6 +75,7 @@
 		if(!$seller_id) {
 			$errors[] = "Elige un vendedor";
 		}
+
 
 		// Check that the error array is empty
 		if (empty($errors)) {
@@ -95,7 +112,7 @@
 		<?php endforeach; ?>
 
 
-		<form method="POST" action="/admin/properties/create.php" class="form">
+		<form method="POST" action="/admin/properties/create.php" class="form" enctype="multipart/form-data" >
 			<fieldset>
 				<legend>Información General</legend>
 
@@ -106,7 +123,7 @@
 				<input type="number" name="price" id="price" placeholder="Precio Propiedad" value="<?php echo $price; ?>">
 
 				<label for="imagen">Imagen:</label>
-				<input type="file" id="image" accept="image/jpeg, image/png">
+				<input type="file" id="image" name="image" accept="image/jpeg, image/png">
 
 				<label for="description">Descripción</label>
 				<textarea name="description" id="description"><?php echo $description; ?></textarea>
