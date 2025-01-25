@@ -1,5 +1,5 @@
 <?php
-	// Database
+	// Database connection
 	require '../../includes/config/database.php';
 	$db = connectDB();
 
