@@ -24,13 +24,13 @@
 		// var_dump($_POST);
 		// echo "</pre>";
 
-		$title = $_POST["title"];
-		$price = $_POST["price"];
-		$description = $_POST["description"];
-		$rooms = $_POST["rooms"];
-		$wc = $_POST["wc"];
-		$parkings = $_POST["parkings"];
-		$seller_id = $_POST["seller_id"];
+		$title = mysqli_real_escape_string($db, $_POST["title"]);
+		$price = mysqli_real_escape_string($db, $_POST["price"]);
+		$description = mysqli_real_escape_string($db, $_POST["description"]);
+		$rooms = mysqli_real_escape_string($db, $_POST["rooms"]);
+		$wc = mysqli_real_escape_string($db, $_POST["wc"]);
+		$parkings = mysqli_real_escape_string($db, $_POST["parkings"]);
+		$seller_id = mysqli_real_escape_string($db, $_POST["seller_id"]);
 
 		if(!$title) {
 			$errors[] = "Debes añadir un titulo";
