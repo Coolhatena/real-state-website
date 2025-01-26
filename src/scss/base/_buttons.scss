@@ -9,3 +9,11 @@
 .button-green {
 	@include button($green, inline-block);
 }
+
+.button-green-block {
+	@include button($green, block);
+}
+
+.button-red-block {
+	@include button($red, block);
+}
