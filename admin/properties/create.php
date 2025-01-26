@@ -116,7 +116,7 @@
 		<a href="/admin" class="button button-green">Volver</a>
 
 		<?php foreach($errors as $error): ?>
-			<div class="alerta error">
+			<div class="alert error">
 				<?php echo $error; ?>
 			</div>
 		<?php endforeach; ?>

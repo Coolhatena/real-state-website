@@ -11,7 +11,7 @@
 	<main class="container section">
 		<h1>Administrador de Bienes Raices</h1>
 		<?php if($result === '1' ): ?>
-			<p class="alerta success">The property was registered succesfully</p>
+			<p class="alert success">The property was registered succesfully</p>
 		<?php endif; ?>
 
 
