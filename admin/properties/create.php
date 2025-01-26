@@ -50,7 +50,7 @@
 		if(!$image['name']) {
 			$errors[] = "La imagen es obligatoria";
 		} else { // validate image size
-			$expected_size = 1000 * 100; // 100 kb
+			$expected_size = 1000 * 2000; // 100 kb
 			if($image['size'] > $expected_size || $image['error']) {
 				$errors[] = "La imagen es muy pesada";
 			}
@@ -79,6 +79,17 @@
 
 		// Check that the error array is empty
 		if (empty($errors)) {
+			// Image folder verification
+			$imagesFolder = "../../images";
+			if( !is_dir($imagesFolder) ){
+				mkdir($imagesFolder);
+			}
+			// File upload
+			move_uploaded_file($image['tmp_name'], $imagesFolder . '/file.jpg');
+
+
+			exit;
+
 			// Insert
 			$query = "INSERT INTO properties (title, price, description, rooms, wc, parkings, created_at, seller_id) VALUES ( '$title', '$price', '$description', '$rooms', '$wc', '$parkings', '$created_at','$seller_id');";
 			// echo $query;
