@@ -33,10 +33,10 @@
 			<tbody> <!-- Show properties dinamically -->
 				<?php while( $property = mysqli_fetch_assoc($query_result) ): ?>
 					<tr>
-						<td><?php echo $property['id'] ?></td>
-						<td><?php echo $property['title'] ?></td>
-						<td> <img src=<?php echo "/images/" . $property['image'] ?> alt="Imagen propiedad" class="table-image"> </td>
-						<td>$ <?php echo $property['price'] ?></td>
+						<td><?php echo $property['id']; ?></td>
+						<td><?php echo $property['title']; ?></td>
+						<td> <img src=<?php echo "/images/" . $property['image']; ?> alt="Imagen propiedad" class="table-image"> </td>
+						<td>$ <?php echo $property['price']; ?></td>
 						<td>
 							<a href="admin/properties/update.php?id=<?php echo $property['id']; ?>" class="button-yellow-block">Actualizar</a>
 							<a href="#" class="button-red-block">Eliminar</a>
