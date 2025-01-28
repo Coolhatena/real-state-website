@@ -1,5 +1,11 @@
 <?php
 
+	require '../includes/config/database.php';
+	$db = connectDB();
+
+	$query = "SELECT * FROM properties";
+	$query_result = mysqli_query($db, $query);
+
 	// echo "<pre>";
 	// var_dump($_GET);
 	// echo "</pre>";
@@ -27,22 +33,27 @@
 					<th>Acciones</th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr>
-					<td>1</td>
-					<td>Casa en la playa</td>
-					<td> <img src="/images/649383509ebbeab61b1a48c839ba1bd8.jpg" alt="Imagen propiedad" class="table-image"> </td>
-					<td>$1200000</td>
-					<td>
-						<a href="#" class="button-yellow-block">Actualizar</a>
-						<a href="#" class="button-red-block">Eliminar</a>
-					</td>
-				</tr>
+			<tbody> <!-- Show properties dinamically -->
+				<?php while( $property = mysqli_fetch_assoc($query_result) ): ?>
+					<tr>
+						<td><?php echo $property['id'] ?></td>
+						<td><?php echo $property['title'] ?></td>
+						<td> <img src=<?php echo "/images/" . $property['image'] ?> alt="Imagen propiedad" class="table-image"> </td>
+						<td>$ <?php echo $property['price'] ?></td>
+						<td>
+							<a href="#" class="button-yellow-block">Actualizar</a>
+							<a href="#" class="button-red-block">Eliminar</a>
+						</td>
+					</tr>
+				<?php endwhile; ?>
 			</tbody>
 		</table>
 	</main>
 
-	<?php includeTemplate('footer'); ?>
+	<?php 
+		mysqli_close($db);
+		includeTemplate('footer'); 
+	?>
 	
 	<script src="/build/js/bundle.min.js"></script>
 </body>
