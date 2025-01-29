@@ -106,11 +106,6 @@
 				header("Location: /admin?result=1");
 			}
 		}
-
-		// echo "<pre>";
-		// var_dump($errors);
-		// echo "</pre>";
-
 	}
 
 	require '../../includes/functions.php';
