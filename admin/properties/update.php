@@ -12,6 +12,8 @@
 	}
 
 	$property_data_query = "SELECT * FROM properties where id=" . $property_id;
+	$property_data_result = mysqli_query($db, $property_data_query);
+	$property_data = mysqli_fetch_assoc($property_data_result);
 
 	// Get sellers
 	$sellers_query = "SELECT * FROM sellers";
@@ -19,14 +21,15 @@
 
 	// Error array
 	$errors = [];
-	$title = '';
-	$price = '';
-	$description = '';
-	$rooms = '';
-	$wc = '';
-	$parkings = '';
-	$seller_id = '';
-	$created_at = date('Y/m/d');
+	$title = $property_data['title'];
+	$price = $property_data['price'];
+	$property_image = $property_data['image'];
+	$description = $property_data['description'];
+	$rooms = $property_data['rooms'];
+	$wc = $property_data['wc'];
+	$parkings = $property_data['parkings'];
+	$seller_id = $property_data['seller_id'];
+	$created_at = $property_data['created_at'];
 
 	// Execute when user sends forms
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -138,6 +141,8 @@
 
 				<label for="imagen">Imagen:</label>
 				<input type="file" id="image" name="image" accept="image/jpeg, image/png">
+
+				<img src="/images/<?php echo $property_image ?>" alt="imagen propiedad" class="image-small">
 
 				<label for="description">Descripción</label>
 				<textarea name="description" id="description"><?php echo $description; ?></textarea>
