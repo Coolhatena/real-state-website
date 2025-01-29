@@ -54,13 +54,10 @@
 			$errors[] = "El precio es obligatorio";
 		}
 
-		if(!$image['name']) {
-			$errors[] = "La imagen es obligatoria";
-		} else { // validate image size
-			$expected_size = 1000 * 2000; // 100 kb
-			if($image['size'] > $expected_size || $image['error']) {
-				$errors[] = "La imagen es muy pesada";
-			}
+		 // validate image size
+		$expected_size = 1000 * 2000; // 100 kb
+		if($image['size'] > $expected_size) {
+			$errors[] = "La imagen es muy pesada";
 		}
 
 		if(strlen($description) < 50) {
@@ -97,13 +94,12 @@
 			move_uploaded_file($image['tmp_name'], $imagesFolder . '/' . $imagen_name );
 
 			// Insert
-			$query = "INSERT INTO properties (title, price, image, description, rooms, wc, parkings, created_at, seller_id) VALUES ( '$title', '$price', '$imagen_name','$description', '$rooms', '$wc', '$parkings', '$created_at','$seller_id');";
-			// echo $query;
-			
+			$query = "UPDATE properties SET title = '" . $title . "', price = '" . $price . "', description = '" . $description . "', rooms = " . $rooms . ", wc = " . $wc . ", parkings = " . $parkings . ", seller_id = " . $seller_id . " WHERE id = " . $property_id . ";";
+
 			$result = mysqli_query($db, $query);
 			if ($result) {
 				// Redirect user
-				header("Location: /admin?result=1");
+				header("Location: /admin?result=2");
 			}
 		}
 	}
@@ -124,7 +120,7 @@
 		<?php endforeach; ?>
 
 
-		<form method="POST" action="/admin/properties/create.php" class="form" enctype="multipart/form-data" >
+		<form method="POST" class="form" enctype="multipart/form-data" >
 			<fieldset>
 				<legend>Información General</legend>
 
