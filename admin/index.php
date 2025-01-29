@@ -16,6 +16,9 @@
 		<?php if($result === '1' ): ?>
 			<p class="alert success">The property was registered succesfully</p>
 		<?php endif; ?>
+		<?php if($result === '2' ): ?>
+			<p class="alert success">The property was updated succesfully succesfully</p>
+		<?php endif; ?>
 
 
 		<a href="/admin/properties/create.php" class="button button-green">Agregar propiedad</a>
