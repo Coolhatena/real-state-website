@@ -14,10 +14,10 @@
 	<main class="container section">
 		<h1>Administrador de Bienes Raices</h1>
 		<?php if($result === '1' ): ?>
-			<p class="alert success">The property was registered succesfully</p>
+			<p class="alert success">Propiedad registrada correctamente</p>
 		<?php endif; ?>
 		<?php if($result === '2' ): ?>
-			<p class="alert success">The property was updated succesfully succesfully</p>
+			<p class="alert success">Propiedad modificada correctamente</p>
 		<?php endif; ?>
 
 
