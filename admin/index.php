@@ -20,9 +20,9 @@
 			<p class="alert success">Propiedad modificada correctamente</p>
 		<?php endif; ?>
 
-
+		<!-- Add proerty -->
 		<a href="/admin/properties/create.php" class="button button-green">Agregar propiedad</a>
-		
+
 		<table class="properties">
 			<thead>
 				<tr>
