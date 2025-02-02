@@ -55,7 +55,7 @@
 		}
 
 		 // validate image size
-		$expected_size = 1000 * 2000; // 100 kb
+		$expected_size = 1000 * 2000; // 2 mb
 		if($image['size'] > $expected_size) {
 			$errors[] = "La imagen es muy pesada";
 		}
