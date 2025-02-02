@@ -90,19 +90,22 @@
 			if( !is_dir($images_folder) ){
 				mkdir($images_folder);
 			}
-			
-			// File upload
-			$imagen_name = md5( rand() ) . '.jpg';
 
+			$image_name = '';
+			
 			if ($image['name']) {
 				// Delete previous imagen
 				unlink($images_folder . $property_data['image']);
-			} 
-
-			move_uploaded_file($image['tmp_name'], $images_folder . $imagen_name );
+				// File upload
+				$image_name = md5( rand() ) . '.jpg';
+				move_uploaded_file($image['tmp_name'], $images_folder . $image_name );
+			} else {
+				$image_name = $property_data['image'];
+			}
+			
 
 			// Insert
-			$query = "UPDATE properties SET title = '" . $title . "', price = '" . $price . "', image = '" . $imagen_name . "', description = '" . $description . "', rooms = " . $rooms . ", wc = " . $wc . ", parkings = " . $parkings . ", seller_id = " . $seller_id . " WHERE id = " . $property_id . ";";
+			$query = "UPDATE properties SET title = '" . $title . "', price = '" . $price . "', image = '" . $image_name . "', description = '" . $description . "', rooms = " . $rooms . ", wc = " . $wc . ", parkings = " . $parkings . ", seller_id = " . $seller_id . " WHERE id = " . $property_id . ";";
 
 			$result = mysqli_query($db, $query);
 			if ($result) {
