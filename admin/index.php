@@ -1,12 +1,42 @@
 <?php
+	// echo "<pre>";
+	// var_dump($_POST);
+	// echo "</pre>";
 
 	require '../includes/config/database.php';
 	$db = connectDB();
 
+	// Get properties from db
 	$query = "SELECT * FROM properties";
 	$query_result = mysqli_query($db, $query);
 
+	// Show messages to user
 	$result = $_GET['result'] ?? null;
+
+	// Handle property delete
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		$delete_id = $_POST['id'];
+		$delete_id = filter_var($delete_id, FILTER_VALIDATE_INT);
+
+		if ($delete_id) {
+			// Delete property image 
+			$query_get_image_name = "SELECT image FROM properties WHERE id = $delete_id";
+			$result_get_image_name = mysqli_query($db, $query_get_image_name);
+			$property = mysqli_fetch_assoc($result_get_image_name);
+			$image_name = $property['image'];
+			
+			unlink('../images/' . $image_name);
+
+			// Delete property
+			$query = "DELETE FROM properties WHERE id = $delete_id";
+			$result = mysqli_query($db, $query);
+
+			if ($result) {
+				header('location: /admin?result=3');
+			}
+		}
+	}
+
 	require '../includes/functions.php';
 	includeTemplate('header'); 
 ?>
@@ -18,6 +48,9 @@
 		<?php endif; ?>
 		<?php if($result === '2' ): ?>
 			<p class="alert success">Propiedad modificada correctamente</p>
+		<?php endif; ?>
+		<?php if($result === '3' ): ?>
+			<p class="alert success">Propiedad eliminada correctamente</p>
 		<?php endif; ?>
 
 		<!-- Add proerty -->
@@ -42,7 +75,10 @@
 						<td>$ <?php echo $property['price']; ?></td>
 						<td>
 							<a href="admin/properties/update.php?id=<?php echo $property['id']; ?>" class="button-yellow-block">Actualizar</a>
-							<a href="#" class="button-red-block">Eliminar</a>
+							<form method="POST">
+								<input type="hidden" name="id" value="<?php echo $property['id']; ?>">
+								<input type="submit" value="Eliminar" class="button-red-block">
+							</form>
 						</td>
 					</tr>
 				<?php endwhile; ?>
