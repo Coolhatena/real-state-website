@@ -80,14 +80,14 @@
 		// Check that the error array is empty
 		if (empty($errors)) {
 			// Image folder verification
-			$imagesFolder = "../../images";
+			$imagesFolder = "../../images/";
 			if( !is_dir($imagesFolder) ){
 				mkdir($imagesFolder);
 			}
 
 			// File upload
 			$imagen_name = md5( rand() ) . '.jpg';
-			move_uploaded_file($image['tmp_name'], $imagesFolder . '/' . $imagen_name );
+			move_uploaded_file($image['tmp_name'], $imagesFolder . $imagen_name );
 
 			// Insert
 			$query = "INSERT INTO properties (title, price, image, description, rooms, wc, parkings, created_at, seller_id) VALUES ( '$title', '$price', '$imagen_name','$description', '$rooms', '$wc', '$parkings', '$created_at','$seller_id');";

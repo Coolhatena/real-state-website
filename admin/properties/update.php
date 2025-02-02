@@ -86,7 +86,7 @@
 
 			
 			// Image folder verification
-			$imagesFolder = "../../images";
+			$imagesFolder = "../../images/";
 			if( !is_dir($imagesFolder) ){
 				mkdir($imagesFolder);
 			}
@@ -96,10 +96,10 @@
 
 			if ($image['name']) {
 				// Delete previous imagen
-				unlink($imagesFolder . '/' . $property_data['image']);
+				unlink($imagesFolder . $property_data['image']);
 			} 
 
-			move_uploaded_file($image['tmp_name'], $imagesFolder . '/' . $imagen_name );
+			move_uploaded_file($image['tmp_name'], $imagesFolder . $imagen_name );
 
 			// Insert
 			$query = "UPDATE properties SET title = '" . $title . "', price = '" . $price . "', image = '" . $imagen_name . "', description = '" . $description . "', rooms = " . $rooms . ", wc = " . $wc . ", parkings = " . $parkings . ", seller_id = " . $seller_id . " WHERE id = " . $property_id . ";";
