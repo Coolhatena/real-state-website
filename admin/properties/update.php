@@ -83,18 +83,26 @@
 
 		// Check that the error array is empty
 		if (empty($errors)) {
+
+			
 			// Image folder verification
 			$imagesFolder = "../../images";
 			if( !is_dir($imagesFolder) ){
 				mkdir($imagesFolder);
 			}
-
+			
 			// File upload
 			$imagen_name = md5( rand() ) . '.jpg';
+
+			if ($image['name']) {
+				// Delete previous imagen
+				unlink($imagesFolder . '/' . $property_data['image']);
+			} 
+
 			move_uploaded_file($image['tmp_name'], $imagesFolder . '/' . $imagen_name );
 
 			// Insert
-			$query = "UPDATE properties SET title = '" . $title . "', price = '" . $price . "', description = '" . $description . "', rooms = " . $rooms . ", wc = " . $wc . ", parkings = " . $parkings . ", seller_id = " . $seller_id . " WHERE id = " . $property_id . ";";
+			$query = "UPDATE properties SET title = '" . $title . "', price = '" . $price . "', image = '" . $imagen_name . "', description = '" . $description . "', rooms = " . $rooms . ", wc = " . $wc . ", parkings = " . $parkings . ", seller_id = " . $seller_id . " WHERE id = " . $property_id . ";";
 
 			$result = mysqli_query($db, $query);
 			if ($result) {
