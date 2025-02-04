@@ -8,7 +8,7 @@
 			<h2>Casas y Depas en Venta</h2>
 			
 			<?php 
-				$limit = 10;
+				$limit = 9;
 				include 'includes/templates/ads_template.php';
 			?>
 	</main>
