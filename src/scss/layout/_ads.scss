@@ -11,10 +11,23 @@
 
 	.ad-content {
 		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	h3, p {
 		margin: 0;
+	}
+
+	.description {
+		height: 11rem;
+		overflow: hidden;
+		display: -webkit-box;
+		line-clamp: 3;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		text-overflow: ellipsis;
 	}
 
 }
