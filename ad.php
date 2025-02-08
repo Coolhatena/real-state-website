@@ -4,10 +4,20 @@
 	$db = connectDB();
 
 	$property_id = $_GET['id'];
+	$property_id = filter_var($property_id, FILTER_VALIDATE_INT);
+
+	if (!$property_id) {
+		header('Location: /');
+	}
 
 	// Get property data from db
 	$query_property_data = "SELECT * FROM properties WHERE id=$property_id";
 	$property_data_result = mysqli_query($db, $query_property_data);
+
+	if($property_data_result->num_rows === 0) {
+		header('Location: /');
+	}
+
 	$property_data = mysqli_fetch_assoc($property_data_result);
 
 	require 'includes/functions.php';
