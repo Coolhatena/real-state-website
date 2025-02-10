@@ -19,7 +19,7 @@
 		}
 
 		if (empty($errors)) {
-			
+
 		}
 	}
 
@@ -37,7 +37,7 @@
 			</div>
 		<?php endforeach; ?>
 
-		<form class="form" method="POST" novalidate>
+		<form class="form" method="POST">
 			<fieldset>
 				<legend>Email y password</legend>
 				<label for="email">Email</label>
