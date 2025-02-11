@@ -20,6 +20,15 @@
 
 		if (empty($errors)) {
 
+			$query_verify_user = "SELECT * FROM users WHERE email = '$email';";
+			$verify_user_result = mysqli_query($db, $query_verify_user);
+
+			if ( $verify_user_result -> num_rows ) {
+
+			} else {
+				$errors[] = "El usuario no existe";
+			}
+
 		}
 	}
 
