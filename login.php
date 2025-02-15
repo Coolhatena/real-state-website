@@ -28,7 +28,6 @@
 
 				// Verify if password matches
 				$auth = password_verify($password, $user['password']);
-				var_dump($auth);
 
 				if ($auth) {
 					session_start();
@@ -36,9 +35,7 @@
 					$_SESSION['user'] = $user['email'];
 					$_SESSION['login'] = true;
 
-					echo "<pre>";
-					var_dump($_SESSION);
-					echo "</pre>";
+
 				} else {
 					$errors[] = "El password es incorrecto";
 				}
