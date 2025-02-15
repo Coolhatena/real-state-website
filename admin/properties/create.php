@@ -1,4 +1,10 @@
 <?php
+	// Check if user is authenticated
+	require '../../includes/functions.php';
+	if(!isAuth()) {
+		header('Location: /');
+	}
+
 	// Database connection
 	require '../../includes/config/database.php';
 	$db = connectDB();
@@ -106,7 +112,6 @@
 
 	}
 
-	require '../../includes/functions.php';
 	includeTemplate('header'); 
 ?>
 

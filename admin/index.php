@@ -2,13 +2,13 @@
 	// echo "<pre>";
 	// var_dump($_POST);
 	// echo "</pre>";
-	
-	session_start();	
-	$auth = $_SESSION['login'];
-	if(!$auth) {
+	// Check if user is authenticated
+	require '../includes/functions.php';
+	if(!isAuth()) {
 		header('Location: /');
 	}
 
+	
 	require '../includes/config/database.php';
 	$db = connectDB();
 
@@ -43,7 +43,6 @@
 		}
 	}
 
-	require '../includes/functions.php';
 	includeTemplate('header'); 
 ?>
 
