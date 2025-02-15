@@ -2,6 +2,12 @@
 	// echo "<pre>";
 	// var_dump($_POST);
 	// echo "</pre>";
+	
+	session_start();	
+	$auth = $_SESSION['login'];
+	if(!$auth) {
+		header('Location: /');
+	}
 
 	require '../includes/config/database.php';
 	$db = connectDB();
