@@ -31,7 +31,7 @@
 			$property = mysqli_fetch_assoc($result_get_image_name);
 			$image_name = $property['image'];
 			
-			unlink('../images/' . $image_name);
+			unlink('../images/' . $image_name); // Unlink deletes the file
 
 			// Delete property
 			$query = "DELETE FROM properties WHERE id = $delete_id";
