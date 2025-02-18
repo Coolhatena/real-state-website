@@ -46,6 +46,7 @@
 	includeTemplate('header'); 
 ?>
 
+	<!-- Show alerts for the user -->
 	<main class="container section">
 		<h1>Administrador de Bienes Raices</h1>
 		<?php if($result === '1' ): ?>
