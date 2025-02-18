@@ -47,7 +47,6 @@
 		}
 	}
 
-
 	require 'includes/functions.php';
 	includeTemplate('header'); 
 ?>
@@ -73,12 +72,9 @@
 
 			<input type="submit" value="Iniciar Sesión" class="button button-green">
 		</form>
-
-
 	</main>
 
 	<?php includeTemplate('footer'); ?>
-	
 	<script src="build/js/bundle.min.js"></script>
 </body>
 </html>
