@@ -1,0 +1,12 @@
+{
+    "name": "coolhatena/real-state-website",
+    "description": "Creating a project with OOP",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Coolhatena",
+            "email": "ingsc.geffroy@gmail.com"
+        }
+    ],
+    "require": {}
+}
