@@ -1,6 +1,6 @@
 <?php
 	
-	require 'includes/config/database.php';
+	require 'includes/app.php';
 	$db = connectDB();
 
 	$property_id = $_GET['id'];
@@ -19,8 +19,6 @@
 	}
 
 	$property_data = mysqli_fetch_assoc($property_data_result);
-
-	require 'includes/functions.php';
 	includeTemplate('header'); 
 ?>
 
