@@ -7,4 +7,3 @@ require __DIR__ . '/../vendor/autoload.php';
 use App\Property;
 
 $property = new Property;
-var_dump($property);
