@@ -1,3 +1,5 @@
 <?php 
-define('TEMPLATES_URL', __DIR__ . '/templates/');
-define('FUNCTIONS_URL',  __DIR__ . 'functions.php');
+
+require 'funciones.php';
+require 'config/database.php';
+require __DIR__ . '/../vendor/autoload.php';
